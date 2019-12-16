@@ -262,6 +262,15 @@
 <div class="tip" id="fs214">val splitAt : index:int -&gt; list:&#39;T list -&gt; &#39;T list * &#39;T list<br /><br />Full name: Microsoft.FSharp.Collections.List.splitAt</div>
 <div class="tip" id="fs215">val before : TroopCard list</div>
 <div class="tip" id="fs216">val after : TroopCard list</div>
+<div class="tip" id="fs217">type SomeDto =<br />&#160;&#160;{ShouldNotCall: unit;}<br /><br />Full name: Battleline.SomeDto</div>
+<div class="tip" id="fs218">SomeDto.ShouldNotCall: unit</div>
+<div class="tip" id="fs219">type unit = Unit<br /><br />Full name: Microsoft.FSharp.Core.unit</div>
+<div class="tip" id="fs220">val serialize : item:&#39;a -&gt; string<br /><br />Full name: Battleline.Persistence.serialize</div>
+<div class="tip" id="fs221">val deserialize : str:string -&gt; &#39;a<br /><br />Full name: Battleline.Persistence.deserialize</div>
+<div class="tip" id="fs222">val str : string</div>
+<div class="tip" id="fs223">val someDto : SomeDto</div>
+<div class="tip" id="fs224">val fsCheck : unit -&gt; Gen&lt;&#39;a&gt; (requires equality)<br /><br />Full name: Hedgehog.Gen.fsCheck</div>
+<div class="tip" id="fs225">module Persistence<br /><br />from Battleline</div>
 
         <!-- Any section element inside of this container is displayed as a slide -->
         <div class="slides">
@@ -289,8 +298,10 @@
 </section>
 <section >
 <section >
-<p><img src="images/GameBox.jpg" alt="" /></p>
 <h3>Баталия</h3>
+</section>
+<section >
+<p><img src="images/GameBox.jpg" alt="" /></p>
 </section>
 <section >
 <p><img src="images/Troops.png" alt="" /></p>
@@ -440,10 +451,6 @@
 </code></pre></td>
 </tr>
 </table>
-<ul>
-<li>Определение конкретных кейсов.</li>
-<li>Порядок карт не влияет на построение.</li>
-</ul>
 <table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
 <span class="l">2: </span>
 </pre></td>
@@ -453,6 +460,8 @@
 </tr>
 </table>
 <ul>
+<li>Конкретные кейсы.</li>
+<li>Порядок карт не влияет на построение.</li>
 <li>Текущая формация входит в множество возможных построений.</li>
 <li>После добавления карты, множество возможных построений может только сокращаться.</li>
 </ul>
@@ -463,12 +472,12 @@
 <h3>Expecto</h3>
 </section>
 <section >
+<h4>Тест в контексте Expecto</h4>
 <ul>
 <li>Имя: string / string list.</li>
 <li>Функция: unit -&gt; unit. // C#: System.Action</li>
 <li>Функция не должна упасть при вызове.</li>
 </ul>
-<h4>Тест в контексте Expecto</h4>
 </section>
 <section >
 <table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
@@ -504,7 +513,7 @@
 <span class="l">5: </span>
 <span class="l">6: </span>
 </pre></td>
-<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span onmouseout="hideTip(event, 'fs122', 298)" onmouseover="showTip(event, 'fs122', 298)" class="f">testCase</span> <span class="s">&quot;order&quot;</span> <span class="o">^</span> <span class="k">fun</span> () <span class="k">-&gt;</span>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span onmouseout="hideTip(event, 'fs122', 298)" onmouseover="showTip(event, 'fs122', 298)" class="f">testCase</span> <span class="s">&quot;order&quot;</span> <span class="o">&lt;|</span> <span class="k">fun</span> () <span class="k">-&gt;</span>
     <span onmouseout="hideTip(event, 'fs123', 299)" onmouseover="showTip(event, 'fs123', 299)" class="t">Expect</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs126', 300)" onmouseover="showTip(event, 'fs126', 300)" class="f">isGreaterThan</span> <span class="s">&quot;&quot;</span> (<span onmouseout="hideTip(event, 'fs69', 301)" onmouseover="showTip(event, 'fs69', 301)" class="p">Werge</span>, <span onmouseout="hideTip(event, 'fs68', 302)" onmouseover="showTip(event, 'fs68', 302)" class="p">Phalanx</span>)
     <span onmouseout="hideTip(event, 'fs123', 303)" onmouseover="showTip(event, 'fs123', 303)" class="t">Expect</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs126', 304)" onmouseover="showTip(event, 'fs126', 304)" class="f">isGreaterThan</span> <span class="s">&quot;&quot;</span> (<span onmouseout="hideTip(event, 'fs68', 305)" onmouseover="showTip(event, 'fs68', 305)" class="p">Phalanx</span>, <span onmouseout="hideTip(event, 'fs67', 306)" onmouseover="showTip(event, 'fs67', 306)" class="p">BattalionOrder</span>)
     <span onmouseout="hideTip(event, 'fs123', 307)" onmouseover="showTip(event, 'fs123', 307)" class="t">Expect</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs126', 308)" onmouseover="showTip(event, 'fs126', 308)" class="f">isGreaterThan</span> <span class="s">&quot;&quot;</span> (<span onmouseout="hideTip(event, 'fs67', 309)" onmouseover="showTip(event, 'fs67', 309)" class="p">BattalionOrder</span>, <span onmouseout="hideTip(event, 'fs66', 310)" onmouseover="showTip(event, 'fs66', 310)" class="p">SkirmishLine</span>)
@@ -1338,7 +1347,7 @@ Expecto.AssertException: .
 <span class="l">12: </span>
 <span class="l">13: </span>
 </pre></td>
-<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span onmouseout="hideTip(event, 'fs171', 938)" onmouseover="showTip(event, 'fs171', 938)" class="f">testHedgehogProperty</span> <span class="s">&quot;хуже и хуже&quot;</span> {
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span onmouseout="hideTip(event, 'fs171', 938)" onmouseover="showTip(event, 'fs171', 938)" class="f">testHedgehogProperty</span> <span class="s">&quot;same or worse&quot;</span> {
     <span class="k">let!</span> <span onmouseout="hideTip(event, 'fs200', 939)" onmouseover="showTip(event, 'fs200', 939)" class="i">newCard</span>, <span onmouseout="hideTip(event, 'fs72', 940)" onmouseover="showTip(event, 'fs72', 940)" class="i">cards</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs160', 941)" onmouseover="showTip(event, 'fs160', 941)" class="i">gen</span> {
         <span class="k">let!</span> <span onmouseout="hideTip(event, 'fs72', 942)" onmouseover="showTip(event, 'fs72', 942)" class="i">cards</span> <span class="o">=</span> 
             <span onmouseout="hideTip(event, 'fs195', 943)" onmouseover="showTip(event, 'fs195', 943)" class="t">Gen</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs196', 944)" onmouseover="showTip(event, 'fs196', 944)" class="t">Formation</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs193', 945)" onmouseover="showTip(event, 'fs193', 945)" class="i">all</span>
@@ -1543,7 +1552,7 @@ Expecto.AssertException: . Expected a (BattalionOrder)
 <span class="l">6: </span>
 <span class="l">7: </span>
 </pre></td>
-<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="i">testHedgehogProperty</span> <span class="s">&quot;&quot;</span> <span class="i">arbs</span> {
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="i">testHedgehogProperty</span> <span class="s">&quot;there and back&quot;</span> <span class="i">arbs</span> {
     <span class="k">let!</span> <span class="i">model</span> <span class="o">=</span> <span class="i">Gen</span><span class="o">.</span><span class="i">Config</span><span class="o">.</span><span class="i">completed</span>
     <span class="i">model</span>
     <span class="o">|&gt;</span> <span class="i">ConfigDto</span><span class="o">.</span><span class="i">ofModel</span>
@@ -1643,9 +1652,40 @@ Expecto.AssertException: . Expected a (BattalionOrder)
 </table>
 <h5>The more things change, the more they stay the same</h5>
 </section>
+<section >
+<p>Подробнее <a href="https://fsharpforfunandprofit.com/posts/property-based-testing-2/#the-more-things-change-the-more-they-stay-the-same">тут</a></p>
+</section>
 </section>
 <section >
+<section >
 <h4>Генераторы на основе рефлексии</h4>
+</section>
+<section >
+<ul>
+<li>FsCheck</li>
+<li>Hedgehog.Experimental</li>
+</ul>
+</section>
+<section >
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
+<span class="l">2: </span>
+<span class="l">3: </span>
+<span class="l">4: </span>
+<span class="l">5: </span>
+<span class="l">6: </span>
+<span class="l">7: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span onmouseout="hideTip(event, 'fs171', 1103)" onmouseover="showTip(event, 'fs171', 1103)" class="f">testHedgehogProperty</span> <span class="s">&quot;persistence&quot;</span> {
+    <span class="k">let!</span> (<span onmouseout="hideTip(event, 'fs223', 1104)" onmouseover="showTip(event, 'fs223', 1104)" class="i">someDto</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs217', 1105)" onmouseover="showTip(event, 'fs217', 1105)" class="t">SomeDto</span>) <span class="o">=</span> <span onmouseout="hideTip(event, 'fs195', 1106)" onmouseover="showTip(event, 'fs195', 1106)" class="t">Gen</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs224', 1107)" onmouseover="showTip(event, 'fs224', 1107)" class="f">fsCheck</span>()
+    <span onmouseout="hideTip(event, 'fs223', 1108)" onmouseover="showTip(event, 'fs223', 1108)" class="i">someDto</span> 
+    <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs225', 1109)" onmouseover="showTip(event, 'fs225', 1109)" class="t">Persistence</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs220', 1110)" onmouseover="showTip(event, 'fs220', 1110)" class="f">serialize</span>
+    <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs225', 1111)" onmouseover="showTip(event, 'fs225', 1111)" class="t">Persistence</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs221', 1112)" onmouseover="showTip(event, 'fs221', 1112)" class="f">deserialize</span>
+    <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs123', 1113)" onmouseover="showTip(event, 'fs123', 1113)" class="t">Expect</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs124', 1114)" onmouseover="showTip(event, 'fs124', 1114)" class="f">equal</span> <span class="s">&quot;&quot;</span> <span onmouseout="hideTip(event, 'fs223', 1115)" onmouseover="showTip(event, 'fs223', 1115)" class="i">someDto</span>
+}
+</code></pre></td>
+</tr>
+</table>
+</section>
 </section>
 <section >
 <section >
@@ -1653,25 +1693,48 @@ Expecto.AssertException: . Expected a (BattalionOrder)
 </section>
 <section >
 <ul>
-<li>Определеям</li>
+<li>Определяем тип.</li>
+<li>Определяем модель некоторого свойства.</li>
+<li>Определяем операции, над типом, и над свойством.</li>
+<li>Рандомно бомбардируем тип операциями, с целью вывести его из консистентного состояния.</li>
 </ul>
+<h5><strike>Зря ты сюда зашел</strike></h5>
 </section>
 </section>
 <section >
 <h3>Итоги</h3>
+<h5><strike>А также то, что я не смог вплести в повествование</strike></h5>
 <ul>
-<li>Дополняет обычные тесты.</li>
+<li>Дополняет, а не заменяет обычные тесты.</li>
+<li>Есть C#-обертки.</li>
 <li>Полезно даже без использования свойств.</li>
 <li>Структура генераторов стандартна для ФП-мира.</li>
 </ul>
 </section>
 <section >
+<section >
+<h3>Ссылки</h3>
+</section>
+<section >
+<h4></h4>
 <ul>
-<li><p><a href="https://fscheck.github.io/FsCheck/">FsCheck</a></p></li>
-<li><p><a href="https://github.com/hedgehogqa/fsharp-hedgehog">Hedgehog</a></p></li>
-<li><p><a href="https://fsharpforfunandprofit.com/posts/property-based-testing/">Пара статей F#FF&amp;P</a></p></li>
-<li><p><a href="http://fsprojects.github.io/FsReveal/">FsReveal</a></p></li>
+<li><a href="https://fscheck.github.io/FsCheck/">FsCheck</a></li>
+<li><a href="https://github.com/hedgehogqa/fsharp-hedgehog">Hedgehog</a></li>
+<li><a href="https://fsharpforfunandprofit.com/posts/property-based-testing/">Пара статей по property-based testing на F#FF&amp;P</a></li>
 </ul>
+</section>
+<section >
+<h4>Сообщенства</h4>
+<ul>
+<li><a href="https://t.me/UfaDotNet">UfaDotNet</a></li>
+<li><a href="https://t.me/fsharp_chat">F#RU</a></li>
+</ul>
+</section>
+<section >
+<ul>
+<li><a href="http://fsprojects.github.io/FsReveal/">Движок презентации</a></li>
+</ul>
+</section>
 </section>
 
 
